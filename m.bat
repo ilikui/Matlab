@@ -13,11 +13,8 @@ rem  the path of the git command
 	
 	set upinfo = %y%_%mo%_%d%_%h%_%mi%
 
-
 	 git add *
-	 
-
-	 
+		 
 	 git commit -m  "upinfo"
 	 
 	 git push
