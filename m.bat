@@ -14,9 +14,9 @@ rem  the path of the git command
 	set upinfo = %y%_%mo%_%d%_%h%_%mi%
 
 	 git add *
-		 
+	 TIMEOUT /T 3	 
 	 git commit -m  "upinfo"
-	 
+	 TIMEOUT /T 5	
 	 git push
 	 
 	 git status
