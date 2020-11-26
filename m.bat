@@ -10,16 +10,19 @@ rem  the path of the git command
 	set y=%date:~6,4%
 	set h=%time:~0,2%
 	set mi=%time:~3,2%
-	
+
 	set upinfo = %y%_%mo%_%d%_%h%_%mi%
 
-	 git add *
-	 TIMEOUT /T 3	 
-	 git commit -m  "upinfo"
-	 TIMEOUT /T 5	
-	 git push
-	 
-	 git status
+	git add *
+
+	REM delay 3 second
+	TIMEOUT /T 3	 
+	git commit -m  "upinfo"
+	REM delay 5 second
+	TIMEOUT /T 5	
+	git push
+
+	git status
 
 pause
 
