@@ -4,7 +4,7 @@
 ![](Imge/CH001/CH00101.png)
 
 # 目录
-* [1.MATLAB用户界面](#MATLAB用户界面)
+* [MATLAB用户界面](#MATLAB用户界面)
 * [2.帮助系统](#帮助系统)
 
 # 1.MATLAB用户界面
