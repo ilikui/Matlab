@@ -17,7 +17,7 @@ rem  the path of the git command
 
 	REM delay 3 second
 	TIMEOUT /T 3	 
-	git commit -m  %y%_%mo%_%d%_%h%_%mi%
+	git commit -m  "update by likui"
 	REM delay 5 second
 	TIMEOUT /T 5	
 	git push
