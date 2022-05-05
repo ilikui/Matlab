@@ -82,7 +82,35 @@
 
 # 6. 二维绘图
 
+## 6.1  线图
 
+* MATLAB函数
+
+  | `plot` | 二维线图 |
+  | ------ | -------- |
+  |        |          |
+  |        |          |
+  |        |          |
+
+
+```matlab
+x = 0:pi/100:2*pi;
+y = sin(x);
+figure % opens new figure window
+plot(x,y)
+```
+
+![](E:\GitHub\Matlab\Imge\CH006\Draw1.jpg)
+
+* MATLAB语言语法
+
+* 属性
+
+
+
+
+
+## 6.2 饼图、条形图
 
 # 7.图形标注
 
