@@ -14,12 +14,12 @@
 | [计算机生物学](https://ww2.mathworks.cn/solutions/computational-biology.html) | [物联网](https://ww2.mathworks.cn/solutions/internet-of-things.html) | [预测性维护](https://ww2.mathworks.cn/solutions/predictive-maintenance.html) |
 | [控制系统](https://ww2.mathworks.cn/solutions/control-systems.html) | [机器学习](https://ww2.mathworks.cn/solutions/machine-learning.html) | [机器人](https://ww2.mathworks.cn/solutions/robotics.html)   |
 | [数据科学](https://ww2.mathworks.cn/solutions/data-science.html) | [机电一体化](https://ww2.mathworks.cn/solutions/mechatronics.html) | [信号处理](https://ww2.mathworks.cn/solutions/signal-processing.html) |
-| [深度学习](https://ww2.mathworks.cn/solutions/deep-learning.html) | 混合信号系统                                                 | 测试和测量                                                   |
-| 嵌入式系统                                                   | 电力电子控制设计                                             | 无线通信                                                     |
-| FPGA、ASCI和Soc开发                                          |                                                              |                                                              |
+| [深度学习](https://ww2.mathworks.cn/solutions/deep-learning.html) | [混合信号系统](https://ww2.mathworks.cn/solutions/mixed-signal-systems.html) | [测试和测量](https://ww2.mathworks.cn/solutions/test-measurement.html) |
+| [嵌入式系统](https://ww2.mathworks.cn/solutions/embedded-systems.html) | [电力电子控制设计](https://ww2.mathworks.cn/solutions/power-electronics-control.html) | [无线通信](https://ww2.mathworks.cn/solutions/wireless-communications.html) |
+| [FPGA、ASCI和Soc开发](https://ww2.mathworks.cn/solutions/fpga-asic-soc-development.html) |                                                              |                                                              |
 
 
-12
+
 # **行业**
 
 # **学科**
