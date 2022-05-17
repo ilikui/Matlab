@@ -22,7 +22,23 @@
 
 # **行业**
 
+
+
+| [航空航天和国防](https://ww2.mathworks.cn/solutions/aerospace-defense.html) | 能源生产                                                     | [量化金融和风险管理](https://ww2.mathworks.cn/solutions/finance-and-risk-management.html) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [汽车](https://ww2.mathworks.cn/solutions/automotive.html)   | [工业自动化和机械](https://ww2.mathworks.cn/solutions/industrial-automation-machinery.html) | [铁路系统](https://ww2.mathworks.cn/solutions/railway-systems.html) |
+| 生物技术和医药                                               | [医疗设备](https://ww2.mathworks.cn/solutions/medical-devices.html) | 半导体                                                       |
+| 通信                                                         | 技术服务与咨询                                               | [金属、材料和采矿](https://ww2.mathworks.cn/solutions/mining.html) |
+| 电子                                                         |                                                              |                                                              |
+|                                                              |                                                              |                                                              |
+
+
+
 # **学科**
+
+| [生物科学](https://ww2.mathworks.cn/solutions/biological-sciences.html) | 神经科学 | 物理学 |
+| ------------------------------------------------------------ | -------- | ------ |
+| [地球、海洋和大气科学](https://ww2.mathworks.cn/solutions/earth-ocean-atmospheric-sciences.html) |          |        |
 
 
 
