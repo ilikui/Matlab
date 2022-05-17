@@ -12,9 +12,9 @@
 | [自动驾驶系统](https://ww2.mathworks.cn/solutions/automated-driving.html) | [图像处理和计算机视觉](https://ww2.mathworks.cn/solutions/image-video-processing.html) | [电力系统分析与设计](https://ww2.mathworks.cn/solutions/power-system-analysis-and-design.html) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [计算机生物学](https://ww2.mathworks.cn/solutions/computational-biology.html) | [物联网](https://ww2.mathworks.cn/solutions/internet-of-things.html) | [预测性维护](https://ww2.mathworks.cn/solutions/predictive-maintenance.html) |
-| 控制系统                                                     | 机器学习                                                     | 机器人                                                       |
-| 数据科学                                                     | 机电一体化                                                   | 信号处理                                                     |
-| 深度学习                                                     | 混合信号系统                                                 | 测试和测量                                                   |
+| [控制系统](https://ww2.mathworks.cn/solutions/control-systems.html) | [机器学习](https://ww2.mathworks.cn/solutions/machine-learning.html) | [机器人](https://ww2.mathworks.cn/solutions/robotics.html)   |
+| [数据科学](https://ww2.mathworks.cn/solutions/data-science.html) | [机电一体化](https://ww2.mathworks.cn/solutions/mechatronics.html) | [信号处理](https://ww2.mathworks.cn/solutions/signal-processing.html) |
+| [深度学习](https://ww2.mathworks.cn/solutions/deep-learning.html) | 混合信号系统                                                 | 测试和测量                                                   |
 | 嵌入式系统                                                   | 电力电子控制设计                                             | 无线通信                                                     |
 | FPGA、ASCI和Soc开发                                          |                                                              |                                                              |
 
