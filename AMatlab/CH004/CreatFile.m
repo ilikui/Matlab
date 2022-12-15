@@ -1,0 +1,30 @@
+%%%%%%%%%%%%%%%
+% ????
+
+% ??fopen??????
+
+clear;clc;
+
+newdir = 'E:\GitHub\Matlab\AMatlab\CH003';
+newfile = 'hello.txt';
+
+% ??????????
+sep =filesep;
+
+full=[newdir sep newfile];
+
+mkdir(newdir);
+
+
+try
+    
+    % ?????????????
+    
+    [fid, message]= fopen(full,'w');
+    
+    fclose(fid);
+catch
+    
+    disp(message);
+    
+end
