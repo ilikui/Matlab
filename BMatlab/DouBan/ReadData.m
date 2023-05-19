@@ -39,10 +39,8 @@ if endsWith(textInfo, '"')
 end
 
 
-new_file = 'textInfo.xml';
-fid = fopen(new_file, 'w');
 
-rss = xmlread('textInfo.xml');
+rss = xmlread(java.io.StringBufferInputStream(textInfo.xml));
 
 items = rss.getElementsByTagName('item');
 
