@@ -1,4 +1,4 @@
-> MATLAB学习教程
+> MATLAB简明学习教程
 
 ![](Imge/CH000/Banner.jpg)
 
