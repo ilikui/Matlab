@@ -26,7 +26,7 @@ void mexFunction( int nlhs, mxArray *plhs[],
     
     a =12;
     c =a+13;
-    mexPrintf("c= %d\n",c);
+    mexPrintf("c = %d\n",c);
     return;
 }
 

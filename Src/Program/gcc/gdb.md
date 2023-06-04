@@ -152,7 +152,7 @@ root@linux:/home/benben/test#
 
 ```
 
-**2** **使用 GDB  
+**2 使用 GDB** 
 **  
 一般来说 GDB 主要调试的是 C/C++ 的程序。要调试 C/C++ 的程序，首先在编译时，我们必须要把调试信息加到可执行文件中。使用编译器（cc/gcc/g++）的 -g 参数可以做到这一点。如：
 
@@ -1282,4 +1282,9 @@ MySQL AB Acquires Alzato - 10 24, 2003
 cvs - 10 24, 2003  
 使用 CVS 进行版本管理 - 10 23, 2003
 
-来源：[http://blog.csdn.net/dadalan/archive/2009/01/12/3758025.aspx](http://blog.csdn.net/dadalan/archive/2009/01/12/3758025.aspx)
+
+> 参考
+
+* 来源：[http://blog.csdn.net/dadalan/archive/2009/01/12/3758025.aspx](http://blog.csdn.net/dadalan/archive/2009/01/12/3758025.aspx)
+
+* GDB调试 [gdb](https://sourceware.org/gdb/)
