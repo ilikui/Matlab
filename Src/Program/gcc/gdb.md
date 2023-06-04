@@ -173,23 +173,27 @@ program 也就是你的执行文件，一般在当前目录下。
 如果你的程序是一个服务程序，那么你可以指定这个服务程序运行时的进程 ID。gdb 会自动 attach 上去，并调试他。program 应该在 PATH 环境变量中搜索得到。  
 GDB 启动时，可以加上一些 GDB 的启动开关，详细的开关可以用 gdb -help 查看。下面只列举一些比较常用的参数：
 
---symbols=SYMFILE  
+`--symbols=SYMFILE `
+
 从指定文件中读取符号表。
 
---se=FILE  
+`--se=FILE  `
+
 从指定文件中读取符号表信息，并把他用在可执行文件中。
 
---core=COREFILE  
+`--core=COREFILE `
+
 调试时 core dump 的 core 文件。
 
---directory=DIR  
+`--directory=DIR  `
+
 加入一个源文件的搜索路径。默认搜索路径是环境变量中 PATH 所定义的路径。
 
 **3 GDB** **的命令概貌**
 
 启动 gdb 后，就进入 gdb 的调试环境中，就可以使用 gdb 的命令开始调试程序了，gdb 的命令可以使用 help 命令来查看，如下所示：
 
-```
+```c
 root@linux:/home/benben# gdb
 GNU gdb 5.1.1
 Copyright 2002 Free Software Foundation, Inc.
@@ -218,7 +222,6 @@ Type "help" followed by a class name for a list of commands in that class.
 Type "help" followed by command name for full documentation.
 Command name abbreviations are allowed if unambiguous.
 (gdb)
-
 ```
 
 gdb 的命令很多，gdb 把之分成许多个种类。help 命令只是例出 gdb 的命令种类，如果要看种类中的命令，可以使用 help 命令，如：help breakpoints，查看设置断点的所有命令。也可以直接 help 来查看命令的帮助。
@@ -227,23 +230,21 @@ gdb 中，输入命令时，可以不用打全命令，只用打命令的前几�
 
 **示例一：** 在进入函数 func 时，设置一个断点。可以敲入 break func，或是直接就是 b func
 
-```
+```c
 (gdb) b func
 Breakpoint 1 at 0x8048458: file hello.c, line 10.
-
 ```
 
 **示例二：** 敲入 b 按两次 TAB 键，你会看到所有 b 打头的命令：
 
-```
+```c
 (gdb) b
 backtrace break bt
-
 ```
 
 **示例三：** 只记得函数的前缀，可以这样：
 
-```
+```c
 (gdb) b make_ <按TAB键>
 （再按下一次TAB键，你会看到:）
 make_a_section_from_file make_environ
@@ -251,7 +252,6 @@ make_abs_section make_function_type
 make_blockvector make_pointer_type
 make_cleanup make_reference_type
 make_command make_symbol_completion_list
-
 ```
 
 GDB 把所有 make 开头的函数全部例出来给你查看。
@@ -268,7 +268,8 @@ shell
 
 还有一个 gdb 命令是 make：
 
-make  
+`make`
+
 可以在 gdb 中执行 make 命令来重新 build 自己的程序。这个命令等价于 “shell make”。
 
 5 **在 GDB 中运行程序**
@@ -316,7 +317,8 @@ tty 命令可以设置输入输出使用的终端设备。如：tty /dev/tty1
 
 我们用 break 命令来设置断点。正面有几点设置断点的方法：
 
-break _function  
+`break _function `
+
 _在进入指定函数时停住。C++ 中可以使用 class::function 或 function(type,type) 格式来指定函数名。
 
 break _linenum  
@@ -365,7 +367,8 @@ info watchpoints
 
 你可设置捕捉点来补捉程序运行时的一些事件。如：载入共享库（动态链接库）或是 C++ 的异常。设置捕捉点的格式为：
 
-catch _event_  
+`catch _event_`
+  
 当 event 发生时，停住程序。event 可以是下面的内容：  
 1、throw 一个 C++ 抛出的异常。（throw 为关键字）  
 2、catch 一个 C++ 捕捉到的异常。（catch 为关键字）  
