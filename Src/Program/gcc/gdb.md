@@ -384,13 +384,16 @@ tcatch _event_
 **四、维护停止点**  
 上面说了如何设置程序的停止点，GDB 中的停止点也就是上述的三类。在 GDB 中，如果你觉得已定义好的停止点没有用了，你可以使用 delete、clear、disable、enable 这几个命令来进行维护。
 
-clear  
+`clear` 
+
 清除所有的已定义的停止点。
 
-clear _function_  
+`clear _function_ `
+
 清除所有设置在函数上的停止点。
 
-clear _linenum_  
+`clear _linenum_`
+
 清除所有设置在指定行上的停止点。  
 clear _filename:linenum_  
 清除所有设置在指定文件：指定行上的停止点。
@@ -449,7 +452,7 @@ end
 
 在 C++ 中，可能会重复出现同一个名字的函数若干次（函数重载），在这种情况下，break 不能告诉 GDB 要停在哪个函数的入口。当然，你可以使用 break 也就是把函数的参数类型告诉 GDB，以指定一个函数。否则的话，GDB 会给你列出一个断点菜单供你选择你所需要的断点。你只要输入你菜单列表中的编号就可以了。如：
 
-```
+```c
 (gdb) b String::after
 [0] cancel
 [1] all
@@ -466,7 +469,6 @@ Breakpoint 3 at 0xafcc: file String.cc, line 846.
 Multiple breakpoints were set.
 Use the "delete" command to delete unwanted breakpoints.
 (gdb)
-
 ```
 
 可见，GDB 列出了所有 after 的重载函数，你可以选一下列表编号就行了。0 表示放弃设置断点，1 表示所有函数都设置断点。
@@ -509,7 +511,7 @@ acceptable to break. This form of the command uses breakpoints, and hence is qui
 
 For instance in the code below, if the current location is line 96, issuing until 99 will execute the program up to line 99 in the same invocation of factorial, i.e. after the inner invocations have returned.
 
-```
+```c
 94 int factorial (int value)
 95 {
 96 if (value > 1) {
@@ -545,10 +547,12 @@ GDB 有能力在你调试程序的时候处理任何一种信号，你可以告�
 handle signal _[keywords...]  
 _在 GDB 中定义一个信号处理。信号可以以 SIG 开头或不以 SIG 开头，可以用定义一个要处理信号的范围（如：SIGIO-SIGKILL，表示处理从 SIGIO 信号到 SIGKILL 的信号，其中包括 SIGIO，SIGIOT，SIGKILL 三个信号），也可以使用关键字 all 来标明要处理所有的信号。一旦被调试的程序接收到信号，运行程序马上会被 GDB 停住，以供调试。Optional arguments keywords, described below, say what change to make.
 
-nostop  
+`nostop`
+
 当被调试的程序收到信号时，GDB 不会停住程序的运行，但会打出消息告诉你收到这种信号。
 
-stop  
+`stop`
+
 当被调试的程序收到信号时，GDB 会停住你的程序。This implies the print keyword as well.
 
 print  
@@ -598,12 +602,11 @@ backtrace
 bt  
 打印当前的函数调用栈的所有信息。如：
 
-```
+```c
 (gdb) bt
 #0 func (n=250) at tst.c:6
 #1 0x08048524 in main (argc=1, argv=0xbffff674) at tst.c:30
 #2 0x400409ed in __libc_start_main () from /lib/libc.so.6
-
 ```
 
 从上可以看出函数的调用栈信息：__libc_start_main --> main() --> func()
@@ -664,7 +667,7 @@ The verbose description is useful when something has gone wrong that has made
 the stack format fail to fit the usual conventions.  
 这个命令会打印出更为详细的当前栈层的信息，只不过，大多数都是运行时的内内地址。比如：函数地址，调用函数的地址，被调用函数的地址，目前的函数是由什么样的程序语言写成的、函数参数地址及值、局部变量的地址等等。如：
 
-```
+```c
 (gdb) info f
 Stack level 0, frame at 0xbffff5d4:
 eip = 0x804845d in func (tst.c:6); saved eip 0x8048524
@@ -674,7 +677,6 @@ Arglist at 0xbffff5d4, args: n=250
 Locals at 0xbffff5d4, Previous frame's sp is 0x0
 Saved registers:
 ebp at 0xbffff5d4, eip at 0xbffff5d8
-
 ```
 
 info frame _addr_
@@ -831,7 +833,7 @@ Line 5 of "tst.c" starts at address 0x8048456 and ends at 0x804845d .
 
 还有一个命令（disassemble）你可以查看源程序的当前执行时的机器码，这个命令会把目前内存中的指令 dump 出来。如下面的示例表示查看函数 func 的汇编代码。
 
-```
+```c
 (gdb) disassemble func
 Dump of assembler code for function func:
 0x8048450 : push %ebp
@@ -857,7 +859,6 @@ Dump of assembler code for function func:
 0x8048489 : pop %ebp
 0x804848a : ret
 End of assembler dump.
-
 ```
 
 **10** **查看运行时数据**  
@@ -925,7 +926,7 @@ a 按十六进制格式显示变量。
 c 按字符格式显示变量。  
 f 按浮点数格式显示变量。
 
-```
+```c
 (gdb) p i
 $21 = 101
  
@@ -943,7 +944,6 @@ $25 = 0x65
  
 (gdb) p/t i
 $26 = 1100101
-
 ```
 
 For example,to print the program counter in hex  
@@ -1007,23 +1007,21 @@ set print address
 set print address on  
 打开地址输出，当程序显示函数信息时，GDB 会显出函数的参数地址。系统默认为打开的，如：
 
-```
+```c
 (gdb) f
 #0 set_quotes (lq=0x34c78 "<<", rq=0x34c88 ">>")
 at input.c:530
 530 if (lquote != def_lquote)
-
 ```
 
 set print address off  
 关闭函数的参数地址显示，如：
 
-```
+```c
 (gdb) set print addr off
 (gdb) f
 #0 set_quotes (lq="<<", rq=">>") at input.c:530
 530 if (lquote != def_lquote)
-
 ```
 
 show print address  
@@ -1289,6 +1287,5 @@ cvs - 10 24, 2003
 > 参考
 
 * 来源：[http://blog.csdn.net/dadalan/archive/2009/01/12/3758025.aspx](http://blog.csdn.net/dadalan/archive/2009/01/12/3758025.aspx)
-
 * GDB调试 [gdb](https://sourceware.org/gdb/)
 * mex [Mex](https://ww2.mathworks.cn/help/releases/R2018b/matlab/ref/mex.html?searchHighlight=mex&s_tid=doc_srchtitle)
