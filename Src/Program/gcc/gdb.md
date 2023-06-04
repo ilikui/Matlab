@@ -51,7 +51,6 @@ void main()
     printf("result[1-100] = %d", result);
     printf("result[1-250] = %d", func(250));
 }
-
 ```
 
 编译生成执行文件：（Linux 下）  
