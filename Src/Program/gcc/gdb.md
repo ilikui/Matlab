@@ -3,9 +3,7 @@
 GDB 是一个强大的命令行调试工具。虽然 X Window 提供了 GDB 的图形版 DDD，但是我仍然更钟爱在命令行模式下使用 GDB。大家知道命令行的强大就是在于，其可以形成执行序列，形成脚本。 UNIX 下的软件全是命令行的，这给程序开发提代供了极大的便利，命令行软件的优势在于，它们可以非常容易的集成在一起，使用几个简单的已有工具的命令，就可以做出一个非常强大的功能。
 
 于是 UNIX 下的软件比 Windows 下的软件更能有机地结合，各自发挥各自的长处，组合成更为强劲的功能。而 Windows 下的图形软件基本上是各自为营，互相不能调用，很不利于各种软件的相互集成。在这里并不是要和 Windows 做个什么比较，所谓 “寸有所长，尺有所短”，图形化工具还是有不如命令行的地方。
-
-  
-  
+ 
 
 **1 GDB** **概述**
 
@@ -23,7 +21,6 @@ GDB 是 GNU 开源组织发布的一个强大的 UNIX 下的程序调试工具�
 代码:
 
 ```c
-
 /**
  * @brief  This is example C code
  *
@@ -1032,23 +1029,33 @@ set print address off
 530 if (lquote != def_lquote)
 ```
 
-show print address  
+`show print address `
+
 查看当前地址显示选项是否打开。  
-set print array  
-set print array on  
+
+`set print array `
+
+`set print array on`  
+
 打开数组显示，打开后当数组显示时，每个元素占一行，如果不打开的话，每个元素则以逗号分隔。这个选项默认是关闭的。与之相关的两个命令如下。  
-set print array off  
-show print array
+
+`set print array off `
+
+`show print array`
 
 set print elements _number-of-elements_  
-这个选项主要是设置数组的，如果你的数组太大了，那么就可以指定一个来指定数据显示的最大长度，当到达这个长度时，GDB 就不再往下显示了。如果设置为 0，则表示不限制。  
-show print elements  
-查看 print elements 的选项信息。
+这个选项主要是设置数组的，如果你的数组太大了，那么就可以指定一个来指定数据显示的最大长度，当到达这个长度时，GDB 就不再往下显示了。如果设置为 0，则表示不限制。 
 
-set print null-stop  
+`show print elements ` 
+
+查看 `print elements` 的选项信息。
+
+`set print null-stop` 
+
 如果打开了这个选项，那么当显示字符串时，遇到结束符则停止显示。这个选项默认为 off。
 
-set print pretty on  
+`set print pretty on `
+
 如果打开 printf pretty 这个选项，那么当 GDB 显示结构体时会比较漂亮。如：  
 $1 = {  
 next = 0x0,  
