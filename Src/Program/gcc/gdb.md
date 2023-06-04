@@ -23,30 +23,38 @@ GDB 是 GNU 开源组织发布的一个强大的 UNIX 下的程序调试工具�
 代码:
 
 ```c
- #include <stdio.h>
+
+/**
+ * @brief  This is example C code
+ *
+ * @param argc
+ * @param argv
+ * @return int
+ */
+#include <stdio.h>
 int func(int n)
 {
-      int sum=0,i;
-      for(i=1; ilt;=100; i++)
-      {
-           sum+=i;
-      }
-    return sum;
- }
+    int sum = 0, i;
+    for (i = 1; i <= 100; i++)
 
+    {
+        sum += i;
+    }
+    return sum;
+}
 
 void main()
- {
-       int i;
-       long result = 0;
-       for(i=1; i<=100; i++)
-     {
-            result += i;
-      }
+{
+    int i;
+    long result = 0;
+    for (i = 1; i <= 100; i++)
 
-     printf("result[1-100] = %d", result );
-     printf("result[1-250] = %d", func(250) );
- } 
+    result += i;
+
+    printf("result[1-100] = %d", result);
+    printf("result[1-250] = %d", func(250));
+}
+
 ```
 
 编译生成执行文件：（Linux 下）  
@@ -1243,7 +1251,7 @@ info source
 
 当 set language 命令后什么也不跟的话，你可以查看 GDB 所支持的语言种类：
 
-```
+```c
 (gdb) set language
 The currently understood settings are:
  
@@ -1257,7 +1265,6 @@ java Use the Java language
 modula-2 Use the Modula-2 language
 pascal Use the Pascal language
 scheme Use the Scheme language
-
 ```
 
 于是你可以在 set language 后跟上被列出来的程序语言名，来设置当前的语言环境。
