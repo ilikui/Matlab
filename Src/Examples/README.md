@@ -14,6 +14,7 @@
 | [sensor_signal_analysis.m](sensor_signal_analysis.m) | MAD 异常点候选、移动平均、FFT 频谱 | `run('Src/Examples/sensor_signal_analysis.m')` |
 | [compare_fixed_point.m](compare_fixed_point.m) | 量化、饱和与误差指标 | `run('Src/Examples/compare_fixed_point.m')` |
 | [compare_reference_outputs.m](compare_reference_outputs.m) | MATLAB 参考输出与候选输出对比 | 见下方调用示例 |
+| [compare_lowpass_c.m](compare_lowpass_c.m) | MATLAB 与独立 C 低通实现对比 | 见下方 C 对比流程 |
 | [test_compare_reference_outputs.m](test_compare_reference_outputs.m) | 参考输出对比函数的回归测试 | `run('Src/Examples/test_compare_reference_outputs.m')` |
 | [test_interpolation.m](test_interpolation.m) | 插值端点、形状和非法输入测试 | `run('Src/Examples/test_interpolation.m')` |
 | [test_kalman_position_velocity.m](test_kalman_position_velocity.m) | 位置/速度 Kalman 测试 | `run('Src/Examples/test_kalman_position_velocity.m')` |
@@ -49,6 +50,38 @@ positionEstimate = xState(1,:);
 velocityEstimate = xState(2,:);
 ```
 
+## MATLAB 与 C 低通滤波对比
+
+目录 [c_reference](c_reference/) 包含不依赖 MATLAB 的 C 低通滤波参考实现、命令行 CSV runner 和独立测试。
+
+使用 GCC 或 Clang，在仓库根目录编译并运行 C 测试：
+
+```sh
+cc -std=c99 -Wall -Wextra -Wpedantic -O2 \
+  Src/Examples/c_reference/lowpass_ref.c \
+  Src/Examples/c_reference/test_lowpass_ref.c -lm -o lowpass_test
+./lowpass_test
+
+cc -std=c99 -Wall -Wextra -Wpedantic -O2 \
+  Src/Examples/c_reference/lowpass_ref.c \
+  Src/Examples/c_reference/lowpass_cli.c -lm -o lowpass_cli
+```
+
+Windows 若使用 MinGW-w64，可把输出文件名改为 `lowpass_test.exe` 和 `lowpass_cli.exe`。也可在其他 C99 兼容编译器下编译。编译器必须支持标准数学库。
+
+然后在 MATLAB 中指定可执行程序路径：
+
+```matlab
+addpath(fullfile(pwd, 'Src', 'Examples'));
+report = compare_lowpass_c(fullfile(pwd, 'lowpass_cli'), 1e-10);
+disp(report);
+assert(report.pass, 'MATLAB and C outputs exceed tolerance.');
+```
+
+在 Windows 上将路径末尾改为 `lowpass_cli.exe`。比较工具会生成临时 CSV 输入文件，运行 C 程序，读取结果并计算误差；临时文件会在函数结束时清理。若命令行工具运行失败，函数会报告非零退出码和命令输出。
+
+该流程比较的是相同递推公式在双精度浮点数下的结果，不代表已经验证定点实现、目标 MCU 编译器行为、实时性或硬件传感器链路。
+
 ## 参考输出与 C 算法对比
 
 将 MATLAB 参考输出和从 C 程序导出的候选输出整理为相同尺寸的数值数组：
@@ -74,6 +107,7 @@ disp(report);
 - `run_all_tests.m` 统一运行现有测试脚本。它报告的是脚本是否执行到末尾，并不替代目标 MATLAB 版本和目标平台上的验证。
 - `sensor_signal_analysis.m` 的 MAD 检测用于演示鲁棒异常点候选识别；实际阈值应根据数据分布和误报成本标定。
 - `compare_fixed_point.m` 仅模拟量化和饱和；实际 C 实现还需核对有符号类型、移位、舍入、溢出和中间结果位宽。
+- `compare_lowpass_c.m` 需要先用 C99 编译器构建命令行程序；MATLAB 函数本身不会自动编译 C 文件。
 
 ## 学习建议
 
