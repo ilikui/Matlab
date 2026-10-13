@@ -14,6 +14,7 @@ int main(int argc, char **argv)
     double *input;
     double *output;
     double alpha;
+    char *alphaEnd;
     size_t count = 0U;
     size_t capacity = 64U;
     int scanResult;
@@ -25,8 +26,8 @@ int main(int argc, char **argv)
     }
 
     errno = 0;
-    alpha = strtod(argv[3], NULL);
-    if (errno != 0 || !isfinite(alpha) || alpha <= 0.0 || alpha > 1.0) {
+    alpha = strtod(argv[3], &alphaEnd);
+    if (errno != 0 || alphaEnd == argv[3] || *alphaEnd != '\\0' ||\n        !isfinite(alpha) || alpha <= 0.0 || alpha > 1.0) {
         fprintf(stderr, "alpha must be finite and in (0, 1]\n");
         return 3;
     }
