@@ -13,7 +13,7 @@
 | [MATLAB 基础 100 问](Questions/Matlab-Basics-100.md) | 10 个模块、100 个问题、代码示例与工程验证 | 系统练习、面试复习 |
 | [推荐书目](Books/Books.txt) | MATLAB 相关书籍 | 系统阅读与拓展 |
 | [函数参考](Src/Function.md) | 常用函数整理 | 编程时快速查询 |
-| [可运行示例与测试](Src/Examples/README.md) | 数组、低通滤波、线性插值、Kalman、传感器频谱、定点量化与回归测试 | 动手练习、算法验证 |
+| [可运行示例与测试](Src/Examples/README.md) | 数组、低通滤波、线性插值、1D/位置-速度 Kalman、传感器频谱、定点量化与统一测试 | 动手练习、算法验证 |
 | [GDB / MEX 相关资料](Src/Program/gcc/gdb.md) | 调试与 MEX 扩展相关记录 | MATLAB 与原生代码交互 |
 
 ## 学习路线
