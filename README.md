@@ -13,6 +13,7 @@
 | [MATLAB 基础 100 问](Questions/Matlab-Basics-100.md) | 10 个模块、100 个问题、代码示例与工程验证 | 系统练习、面试复习 |
 | [推荐书目](Books/Books.txt) | MATLAB 相关书籍 | 系统阅读与拓展 |
 | [函数参考](Src/Function.md) | 常用函数整理 | 编程时快速查询 |
+| [可运行示例与测试](Src/Examples/README.md) | 数组、低通滤波、线性插值、Kalman 示例与回归测试 | 动手练习、算法验证 |
 | [GDB / MEX 相关资料](Src/Program/gcc/gdb.md) | 调试与 MEX 扩展相关记录 | MATLAB 与原生代码交互 |
 
 ## 学习路线
@@ -36,6 +37,10 @@ flowchart LR
 - **信号处理**：采样、滤波、FFT、传感器数据分析。
 - **控制系统**：系统响应、控制器参数分析与 Simulink 仿真。
 - **嵌入式算法验证**：建立 MATLAB 参考模型，与 C 实现进行输入输出对比。
+
+## 可运行代码
+
+从 [Src/Examples](Src/Examples/README.md) 开始。示例包括数组与统计、带参数校验的低通滤波、线性插值、一维 Kalman 滤波，以及轻量级回归测试。运行前请阅读各函数的输入约束与模型假设。
 
 ## 学习原则
 
