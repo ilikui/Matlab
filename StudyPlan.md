@@ -246,3 +246,13 @@ run('Src/Examples/run_tests.m');
 
 5. **位置/速度 Kalman**：运行 `kalman_position_velocity.m`，改变采样周期 `dt`、加速度噪声方差 `accelVar` 和位置测量方差 `R`，观察位置与速度估计及协方差变化。
 6. **统一回归测试**：运行 `run('Src/Examples/run_all_tests.m')`，把新增算法的边界条件加入对应测试脚本；提交前记录 MATLAB 版本和实际执行结果。
+
+
+### MATLAB 与 C 参考实现对比
+
+1. 先运行 `Src/Examples/c_reference/test_lowpass_ref.c` 对应的 C 单元测试，确认 C 参考函数本身通过。
+2. 编译 `lowpass_cli.c`，让 C 程序从 CSV 读取同一组确定性输入并输出结果。
+3. 在 MATLAB 中调用 `compare_lowpass_c`，查看最大绝对误差、RMSE 和容差内样本情况。
+4. 若结果不一致，先检查输入顺序、初始化方式、`alpha`、精度、编译参数和输出文件格式，再分析算法实现。
+
+该流程先验证双精度浮点实现的一致性。若要验证嵌入式定点实现，需要进一步约定缩放因子、舍入方式、饱和/回绕策略和中间运算位宽。
