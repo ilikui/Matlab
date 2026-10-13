@@ -10,11 +10,15 @@
 | [lowpass_filter.m](lowpass_filter.m) | 一阶低通滤波函数 | 见下方调用示例 |
 | [linear_interp_checked.m](linear_interp_checked.m) | 带输入校验的分段线性插值 | 见下方调用示例 |
 | [kalman_1d.m](kalman_1d.m) | 一维随机游走模型的 Kalman 滤波 | 见下方调用示例 |
+| [kalman_position_velocity.m](kalman_position_velocity.m) | 位置/速度二维状态 Kalman 滤波 | 见下方调用示例 |
 | [sensor_signal_analysis.m](sensor_signal_analysis.m) | MAD 异常点候选、移动平均、FFT 频谱 | `run('Src/Examples/sensor_signal_analysis.m')` |
 | [compare_fixed_point.m](compare_fixed_point.m) | 量化、饱和与误差指标 | `run('Src/Examples/compare_fixed_point.m')` |
 | [compare_reference_outputs.m](compare_reference_outputs.m) | MATLAB 参考输出与候选输出对比 | 见下方调用示例 |
 | [test_compare_reference_outputs.m](test_compare_reference_outputs.m) | 参考输出对比函数的回归测试 | `run('Src/Examples/test_compare_reference_outputs.m')` |
+| [test_interpolation.m](test_interpolation.m) | 插值端点、形状和非法输入测试 | `run('Src/Examples/test_interpolation.m')` |
+| [test_kalman_position_velocity.m](test_kalman_position_velocity.m) | 位置/速度 Kalman 测试 | `run('Src/Examples/test_kalman_position_velocity.m')` |
 | [run_tests.m](run_tests.m) | 核心算法的简单回归测试 | `run('Src/Examples/run_tests.m')` |
+| [run_all_tests.m](run_all_tests.m) | 统一运行全部测试脚本 | `run('Src/Examples/run_all_tests.m')` |
 
 ## 运行示例函数
 
@@ -35,6 +39,14 @@ yq = linear_interp_checked(xTable, yTable, [0.5 1.5 2.5]);
 % Kalman：观测为位置，状态采用随机游走模型
 z = [10.2 9.8 10.4 10.1 9.9];
 [xhat, P] = kalman_1d(z, 0.05, 0.5, 10, 1);
+
+% 位置/速度状态模型：dt 为采样周期，状态为 [位置; 速度]
+t = 0:0.1:5;
+zPosition = 2 + 1.5*t + 0.1*sin(2*pi*t);
+[xState, covariance] = kalman_position_velocity( ...
+    zPosition, 0.1, 0.05, 0.04, [2; 1], eye(2));
+positionEstimate = xState(1,:);
+velocityEstimate = xState(2,:);
 ```
 
 ## 参考输出与 C 算法对比
@@ -58,6 +70,8 @@ disp(report);
 - `lowpass_filter` 的 `alpha` 是离散递推系数，不是以 Hz 表示的截止频率。
 - `linear_interp_checked` 默认拒绝表格范围外的查询值，不做外推。
 - `kalman_1d` 使用一维随机游走状态模型，过程噪声与测量噪声方差必须非负，不能替代完整的传感器建模与验证。
+- `kalman_position_velocity` 使用常速度状态转移模型，输入为位置测量，输出状态为位置和速度；所有单位、采样周期和噪声方差必须一致。
+- `run_all_tests.m` 统一运行现有测试脚本。它报告的是脚本是否执行到末尾，并不替代目标 MATLAB 版本和目标平台上的验证。
 - `sensor_signal_analysis.m` 的 MAD 检测用于演示鲁棒异常点候选识别；实际阈值应根据数据分布和误报成本标定。
 - `compare_fixed_point.m` 仅模拟量化和饱和；实际 C 实现还需核对有符号类型、移位、舍入、溢出和中间结果位宽。
 
