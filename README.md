@@ -40,7 +40,7 @@ flowchart LR
 
 ## 可运行代码
 
-从 [Src/Examples](Src/Examples/README.md) 开始。示例包括数组与统计、带参数校验的低通滤波、线性插值、一维 Kalman 滤波，以及轻量级回归测试。运行前请阅读各函数的输入约束与模型假设。
+从 [Src/Examples](Src/Examples/README.md) 开始。示例包括数组与统计、低通滤波、线性插值、一维 Kalman 滤波、传感器异常点与 FFT 分析、定点量化误差，以及参考输出对比和回归测试。运行前请阅读各函数的输入约束与模型假设。
 
 ## 学习原则
 
