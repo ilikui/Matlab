@@ -165,7 +165,7 @@ figure % opens new figure window
 plot(x,y)
 ```
 
-![](E:\GitHub\Matlab\Imge\CH006\Draw1.jpg)
+![](../Imge/CH006/Draw1.jpg)
 
 * MATLAB语言语法
 
