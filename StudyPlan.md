@@ -202,3 +202,31 @@ Matlab/
 - [MATLAB 入门教程](https://www.mathworks.com/help/matlab/getting-started-with-matlab.html)
 - [Simulink 文档](https://www.mathworks.com/help/simulink/)
 - [MATLAB 示例](https://www.mathworks.com/help/matlab/examples.html)
+
+
+## 可运行示例与算法验证
+
+完成基础语法后，进入 [可运行示例目录](Src/Examples/README.md)，建议按以下顺序操作：
+
+1. `basic_arrays.m`：数组创建、逻辑索引、统计量、超限检测和绘图。
+2. `linear_interp_checked.m`：检查查表输入、单调性、边界策略与插值结果。
+3. `lowpass_filter.m`：观察离散递推滤波系数对平滑程度和响应速度的影响。
+4. `kalman_1d.m`：理解预测、测量更新、Kalman 增益和协方差递推。
+5. `run_tests.m`：运行回归测试，并为每次代码修改增加边界测试。
+
+运行方式（从仓库根目录执行）：
+
+```matlab
+addpath(fullfile(pwd, 'Src', 'Examples'));
+run('Src/Examples/basic_arrays.m');
+run('Src/Examples/run_tests.m');
+```
+
+### 算法验证的最低要求
+
+- 固定测试输入，记录预期输出；对浮点结果使用合理容差。
+- 覆盖正常值、边界值、空输入、异常输入和尺寸错误。
+- 记录单位、采样周期、初始状态、参数含义与模型假设。
+- 将 MATLAB 参考结果与独立计算、理论结果或 C 实现交叉比较。
+- 示例通过测试不等于可直接用于量产项目；需要按目标系统补充需求、故障处理和目标平台验证。
+
