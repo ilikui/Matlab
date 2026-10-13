@@ -70,10 +70,7 @@ function report = compare_interpolation_c(executablePath, tolerance)
     report.executable = executablePath;
     report.commandOutput = commandOutput;
     report.sampleCount = numel(expected);
-    report.maxAbsError = max(abs(difference));
-    if isempty(difference)
-        report.maxAbsError = 0;
-    end
+    report.maxAbsoluteError = max(abs(difference));
 end
 
 function result = quoteArg(value)
