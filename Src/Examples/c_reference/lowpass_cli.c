@@ -27,7 +27,8 @@ int main(int argc, char **argv)
 
     errno = 0;
     alpha = strtod(argv[3], &alphaEnd);
-    if (errno != 0 || alphaEnd == argv[3] || *alphaEnd != '\\0' ||\n        !isfinite(alpha) || alpha <= 0.0 || alpha > 1.0) {
+    if (errno != 0 || alphaEnd == argv[3] || *alphaEnd != '\0' ||
+        !isfinite(alpha) || alpha <= 0.0 || alpha > 1.0) {
         fprintf(stderr, "alpha must be finite and in (0, 1]\n");
         return 3;
     }
