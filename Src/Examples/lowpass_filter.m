@@ -21,7 +21,8 @@ function y = lowpass_filter(x, alpha)
             'alpha must be a finite scalar in the interval (0, 1].');
     end
 
-    y = zeros(size(x), 'like', x);
+    % Use floating-point output so integer inputs do not quantize each recursive update.
+    y = zeros(size(x), 'like', double(x));
     if isempty(x)
         return;
     end
