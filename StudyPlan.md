@@ -242,3 +242,7 @@ run('Src/Examples/run_tests.m');
 4. **测试驱动迭代**：运行 `run_tests.m` 和 `test_compare_reference_outputs.m`，对每个新边界条件增加自动化断言。
 
 注意：这些示例用于学习和初步验证。正式嵌入式项目还应测试目标编译器、实际定点算术规则、溢出策略、任务调度与硬件输入范围。
+
+
+5. **位置/速度 Kalman**：运行 `kalman_position_velocity.m`，改变采样周期 `dt`、加速度噪声方差 `accelVar` 和位置测量方差 `R`，观察位置与速度估计及协方差变化。
+6. **统一回归测试**：运行 `run('Src/Examples/run_all_tests.m')`，把新增算法的边界条件加入对应测试脚本；提交前记录 MATLAB 版本和实际执行结果。
