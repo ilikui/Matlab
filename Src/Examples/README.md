@@ -15,6 +15,7 @@
 | [compare_fixed_point.m](compare_fixed_point.m) | 量化、饱和与误差指标 | `run('Src/Examples/compare_fixed_point.m')` |
 | [compare_reference_outputs.m](compare_reference_outputs.m) | MATLAB 参考输出与候选输出对比 | 见下方调用示例 |
 | [compare_lowpass_c.m](compare_lowpass_c.m) | MATLAB 与独立 C 低通实现对比 | 见下方 C 对比流程 |
+| [compare_interpolation_c.m](compare_interpolation_c.m) | MATLAB 与独立 C 线性插值实现对比 | 见下方插值对比流程 |
 | [test_compare_reference_outputs.m](test_compare_reference_outputs.m) | 参考输出对比函数的回归测试 | `run('Src/Examples/test_compare_reference_outputs.m')` |
 | [test_interpolation.m](test_interpolation.m) | 插值端点、形状和非法输入测试 | `run('Src/Examples/test_interpolation.m')` |
 | [test_kalman_position_velocity.m](test_kalman_position_velocity.m) | 位置/速度 Kalman 测试 | `run('Src/Examples/test_kalman_position_velocity.m')` |
@@ -82,6 +83,34 @@ assert(report.pass, 'MATLAB and C outputs exceed tolerance.');
 
 该流程比较的是相同递推公式在双精度浮点数下的结果，不代表已经验证定点实现、目标 MCU 编译器行为、实时性或硬件传感器链路。
 
+## MATLAB 与 C 线性插值对比
+
+C 参考实现位于 [c_reference/linear_interp_ref.c](c_reference/linear_interp_ref.c)，包含严格递增表格检查、有限值检查、查询范围检查和二分查找。查询点可以乱序；表格范围外的查询会返回错误，不执行外推。
+
+在仓库根目录编译并运行独立 C 测试与命令行工具：
+
+```sh
+cc -std=c99 -Wall -Wextra -Wpedantic -O2 \
+  Src/Examples/c_reference/linear_interp_ref.c \
+  Src/Examples/c_reference/test_linear_interp_ref.c -lm -o interp_test
+./interp_test
+
+cc -std=c99 -Wall -Wextra -Wpedantic -O2 \
+  Src/Examples/c_reference/linear_interp_ref.c \
+  Src/Examples/c_reference/linear_interp_cli.c -lm -o linear_interp_cli
+```
+
+命令行输入格式：表格 CSV 每行两列 `x,y`；查询 CSV 每行一个查询值；输出 CSV 每行一个插值结果。然后在 MATLAB 中执行：
+
+```matlab
+addpath(fullfile(pwd, 'Src', 'Examples'));
+report = compare_interpolation_c(fullfile(pwd, 'linear_interp_cli'), 1e-10);
+disp(report);
+assert(report.pass, 'MATLAB and C interpolation outputs exceed tolerance.');
+```
+
+Windows 下请使用 `linear_interp_cli.exe` 等对应可执行文件名。该对比脚本会使用不等间距查表点及乱序查询值，并清理临时 CSV。当前测试覆盖端点、分段插值、乱序查询、重复节点、非有限表值、越界查询及空查询列表。
+
 ## 参考输出与 C 算法对比
 
 将 MATLAB 参考输出和从 C 程序导出的候选输出整理为相同尺寸的数值数组：
@@ -107,7 +136,7 @@ disp(report);
 - `run_all_tests.m` 统一运行现有测试脚本。它报告的是脚本是否执行到末尾，并不替代目标 MATLAB 版本和目标平台上的验证。
 - `sensor_signal_analysis.m` 的 MAD 检测用于演示鲁棒异常点候选识别；实际阈值应根据数据分布和误报成本标定。
 - `compare_fixed_point.m` 仅模拟量化和饱和；实际 C 实现还需核对有符号类型、移位、舍入、溢出和中间结果位宽。
-- `compare_lowpass_c.m` 需要先用 C99 编译器构建命令行程序；MATLAB 函数本身不会自动编译 C 文件。
+- `compare_lowpass_c.m` 和 `compare_interpolation_c.m` 都需要先用 C99 编译器构建各自的命令行程序；MATLAB 函数本身不会自动编译 C 文件。
 
 ## 学习建议
 
