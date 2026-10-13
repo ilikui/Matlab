@@ -32,7 +32,7 @@ function report = compare_lowpass_c(executablePath, tolerance)
     inputFile = [tempname, '.csv'];
     outputFile = [tempname, '.csv'];
     cleanup = onCleanup(@() cleanupFiles(inputFile, outputFile)); %#ok<NASGU>
-    writematrix(x, inputFile);
+    dlmwrite(inputFile, x, 'precision', '%.17g');
 
     % Quote paths for spaces. MATLAB uses the host shell to launch the runner.
     command = sprintf('"%s" "%s" "%s" %.17g', ...
@@ -46,7 +46,7 @@ function report = compare_lowpass_c(executablePath, tolerance)
         error('compare_lowpass_c:MissingOutput', ...
             'C runner did not create its output file.');
     end
-    cOutput = readmatrix(outputFile);
+    cOutput = dlmread(outputFile);
     if ~isvector(cOutput) || numel(cOutput) ~= numel(matlabOutput) || ...
             any(~isfinite(cOutput(:)))
         error('compare_lowpass_c:InvalidOutput', ...
