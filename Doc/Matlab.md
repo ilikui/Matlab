@@ -295,11 +295,88 @@ plot(x,y)
 
 ## 6.2 饼图、条形图
 
+条形图适合比较类别之间的数值；饼图适合展示组成关系，但类别过多或差异很小时不易比较。
+
+```matlab
+categories = categorical(["A","B","C"]);
+values = [12 18 9];
+figure;
+bar(categories, values);
+grid on;
+xlabel('Category');
+ylabel('Count');
+title('Counts by category');
+```
+
 # 7.图形标注
+
+图形应明确说明变量含义、单位和数据来源。常用标注包括 `title`、`xlabel`、`ylabel`、`legend`、`grid` 和 `xlim/ylim`。
+
+```matlab
+x = linspace(0, 2*pi, 200);
+y1 = sin(x);
+y2 = cos(x);
+figure;
+plot(x, y1, 'DisplayName', 'sin(x)');
+hold on;
+plot(x, y2, 'DisplayName', 'cos(x)');
+hold off;
+grid on;
+xlabel('Angle (rad)');
+ylabel('Amplitude');
+title('Sine and cosine');
+legend('Location', 'best');
+```
+
+保存图片前检查图例是否遮挡数据、坐标范围是否误导，以及单位是否完整。高质量导出可按当前版本支持情况使用 `exportgraphics` 或 `print`。
 
 # 8.三维绘图
 
+```matlab
+[x, y] = meshgrid(-2:0.1:2, -2:0.1:2);
+z = x .* exp(-x.^2 - y.^2);
+figure;
+surf(x, y, z);
+xlabel('x');
+ylabel('y');
+zlabel('z');
+title('Surface example');
+colorbar;
+```
+
+`plot3` 用于三维曲线，`mesh` 和 `surf` 用于网格/曲面。三维图同样需要标注坐标轴和单位。
+
 # 9. 程序设计
+
+## 9.1 脚本与函数
+
+脚本适合组织一次实验流程；函数适合封装可复用逻辑。函数应有明确的输入、输出和错误处理。
+
+```matlab
+function y = scaleSignal(x, gain)
+    if ~isnumeric(x) || ~isreal(x) || any(~isfinite(x(:)))
+        error('scaleSignal:InvalidSignal', ...
+            'x must contain finite real numeric values.');
+    end
+    if ~isnumeric(gain) || ~isscalar(gain) || ~isfinite(gain)
+        error('scaleSignal:InvalidGain', ...
+            'gain must be a finite numeric scalar.');
+    end
+    y = x .* gain;
+end
+```
+
+将函数保存为与函数名一致的 `scaleSignal.m` 文件。
+
+## 9.2 调试与测试
+
+- 用断点和单步执行定位变量首次变错的位置。
+- 使用 `size`、`class`、`isfinite` 检查输入。
+- 为正常、边界、非法输入分别设计测试。
+- 对浮点输出使用有依据的容差，而不是默认要求完全相等。
+- 使用固定随机种子和明确输入，使结果可以复现。
+
+继续学习：[函数与测试指南](03-Functions-and-Testing.md)、[数值方法指南](05-Numerical-Methods.md) 和 [实践实验](../Questions/MATLAB-Practice-Labs.md)
 
 
 
