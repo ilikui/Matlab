@@ -187,3 +187,21 @@ See [LICENSE](LICENSE) for the license terms applicable to this repository.
 *An evolving, practical reference for MATLAB learning and engineering exploration.*
 
 </div>
+
+## Documentation Library
+
+The repository now includes focused guides that can be read independently or followed in order.
+
+| Guide | What it covers |
+|---|---|
+| [Environment & Workflow](Doc/00-Environment-and-Workflow.md) | Paths, diagnostics, reproducible project setup |
+| [Language Fundamentals](Doc/01-Language-Fundamentals.md) | Types, operators, indexing, control flow |
+| [Arrays & Matrices](Doc/02-Arrays-Matrices.md) | Dimensions, matrix algebra, data containers |
+| [Functions & Testing](Doc/03-Functions-and-Testing.md) | Contracts, validation, regression tests |
+| [Data & Visualization](Doc/04-Data-and-Visualization.md) | Import, cleaning, statistics, plots, export |
+| [Numerical Methods](Doc/05-Numerical-Methods.md) | Solvers, interpolation, error metrics |
+| [Signal, Control & Embedded](Doc/06-Signal-Control-and-Embedded.md) | FFT, filters, Kalman models, MATLAB/C handoff |
+| [Engineering Project Portfolio](Doc/07-Project-Portfolio.md) | Progressive practical projects |
+| [Practice Labs](Questions/MATLAB-Practice-Labs.md) | Ten hands-on labs with acceptance criteria |
+| [Function Index](Src/Function.md) | Searchable reference to common functions |
+
