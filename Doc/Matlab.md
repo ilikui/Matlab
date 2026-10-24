@@ -1,6 +1,6 @@
 # MATLAB 基础教程
 
-> 本文保留仓库中的原始教程内容，并补充学习导航。原资料部分章节尚未展开，建议结合 [MATLAB 基础 100 问](../Questions/Matlab-Basics-100.md) 与 [学习路线](../StudyPlan.md) 系统练习。
+> 本文保留仓库中的原始教程内容，并补充系统学习导航。建议按顺序阅读 [环境与工作流](00-Environment-and-Workflow.md)、[语言基础](01-Language-Fundamentals.md)、[数组与矩阵](02-Arrays-Matrices.md)、[函数与测试](03-Functions-and-Testing.md)、[数据分析与可视化](04-Data-and-Visualization.md)、[数值方法](05-Numerical-Methods.md)、[信号处理与嵌入式算法](06-Signal-Control-and-Embedded.md)，再完成 [工程项目集](07-Project-Portfolio.md) 和 [实践练习](../Questions/MATLAB-Practice-Labs.md)。原始章节继续保留，便于与新增教程对照。
 
 ## 学习导航
 
