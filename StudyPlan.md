@@ -53,6 +53,23 @@ flowchart TD
 - [ ] 保存可运行代码和结果截图/图表
 - [ ] 记录一个错误案例及其原因
 
+## 配套教程与实践资料
+
+按以下顺序配合本计划学习；每一阶段都应产出代码、测试结果或简短复盘，而不只是阅读完章节。
+
+| 阶段 | 资料 |
+|---|---|
+| 环境与工具链 | [环境与工作流](Doc/00-Environment-and-Workflow.md) |
+| 语法与数据类型 | [语言基础](Doc/01-Language-Fundamentals.md) |
+| 数组、矩阵和线性代数 | [数组与矩阵](Doc/02-Arrays-Matrices.md) |
+| 函数、输入校验和测试 | [函数与测试](Doc/03-Functions-and-Testing.md) |
+| 数据导入、统计和绘图 | [数据分析与可视化](Doc/04-Data-and-Visualization.md) |
+| 数值算法与误差评估 | [数值方法](Doc/05-Numerical-Methods.md) |
+| FFT、滤波、Kalman 与嵌入式交付 | [信号、控制与嵌入式](Doc/06-Signal-Control-and-Embedded.md) |
+| 综合工程实践 | [项目集](Doc/07-Project-Portfolio.md) |
+| 练习与验收 | [实践实验](Questions/MATLAB-Practice-Labs.md) |
+| 函数查询 | [函数索引](Src/Function.md) |
+
 ## 详细章节
 
 ### 阶段 0：环境与帮助系统
