@@ -1,59 +1,189 @@
-# MATLAB 学习与实践库
+<!--
+  MATLAB Learning & Engineering Practice
+  A structured, hands-on repository for numerical computing and algorithm validation.
+-->
 
-> 从 MATLAB 基础语法出发，逐步掌握矩阵计算、数据分析、可视化、算法验证，并延伸到信号处理、控制系统、Simulink 与工程代码生成。
+<div align="center">
 
-![MATLAB](Imge/CH000/Banner.jpg)
+# MATLAB · Learning & Engineering Lab
 
-## 学习入口
+**From mathematical fundamentals to reproducible experiments and engineering-grade algorithm validation.**
 
-| 入口 | 内容 | 适合场景 |
+[![MATLAB](https://img.shields.io/badge/MATLAB-Scientific%20Computing-orange?style=flat-square&logo=mathworks&logoColor=white)](https://www.mathworks.com/products/matlab.html)
+[![Learning Path](https://img.shields.io/badge/Learning-Structured-blue?style=flat-square)](StudyPlan.md)
+[![Examples](https://img.shields.io/badge/Examples-Hands--on-success?style=flat-square)](Src/Examples/README.md)
+[![Documentation](https://img.shields.io/badge/Docs-Mermaid%20%2B%20Markdown-7B68EE?style=flat-square)](https://mermaid.js.org/)
+
+<br/>
+
+![MATLAB Learning Banner](Imge/CH000/Banner.jpg)
+
+*Learn the language. Understand the mathematics. Validate the algorithm. Make the result reproducible.*
+
+</div>
+
+---
+
+## Overview
+
+This repository is a structured learning and practice space for **MATLAB programming, scientific computing, data analysis, signal processing, control-system exploration, and embedded-algorithm verification**.
+
+It combines progressive learning notes, a staged study plan, a question-driven knowledge base, reusable examples, and engineering-oriented validation exercises. The aim is not merely to collect syntax, but to build a workflow that moves from understanding a concept to implementing it, testing it, and explaining its limitations.
+
+> **Learning principle:** Every important concept should lead to an experiment; every algorithm should have explicit assumptions, boundary conditions, and a way to verify its results.
+
+## Start Here
+
+| If you want to… | Start with | What you will find |
 |---|---|---|
-| [学习路线与实践计划](StudyPlan.md) | 分阶段路线、每周执行法、自测清单、项目练习 | 规划学习、检查进度 |
-| [MATLAB 基础教程](Doc/Matlab.md) | 界面、帮助系统、基础语法、数组与绘图 | 查阅已有笔记 |
-| [MATLAB 基础 100 问](Questions/Matlab-Basics-100.md) | 10 个模块、100 个问题、代码示例与工程验证 | 系统练习、面试复习 |
-| [推荐书目](Books/Books.txt) | MATLAB 相关书籍 | 系统阅读与拓展 |
-| [函数参考](Src/Function.md) | 常用函数整理 | 编程时快速查询 |
-| [可运行示例与测试](Src/Examples/README.md) | 数组、低通滤波、线性插值、1D/位置-速度 Kalman、传感器频谱、定点量化、MATLAB/C 对比与统一测试 | 动手练习、算法验证 |
-| [GDB / MEX 相关资料](Src/Program/gcc/gdb.md) | 调试与 MEX 扩展相关记录 | MATLAB 与原生代码交互 |
+| Plan a complete learning journey | [Study Plan](StudyPlan.md) | Stages, weekly practice, checkpoints, and projects |
+| Learn MATLAB fundamentals | [MATLAB Tutorial](Doc/Matlab.md) | Environment, syntax, arrays, matrices, and plotting |
+| Practice through focused questions | [MATLAB Basics — 100 Questions](Questions/Matlab-Basics-100.md) | Topic-based questions, explanations, and examples |
+| Run and inspect practical code | [Examples & Tests](Src/Examples/README.md) | Filtering, interpolation, Kalman filtering, FFT, quantization, and MATLAB/C comparisons |
+| Look up commonly used functions | [Function Reference](Src/Function.md) | A practical function index |
+| Explore recommended reading | [Books](Books/Books.txt) | Books and further learning resources |
+| Study native-code integration and debugging | [GDB / MEX Notes](Src/Program/gcc/gdb.md) | Related notes for debugging and native-code workflows |
 
-## 学习路线
+## Learning Architecture
+
+The repository is organized around a progression from fundamentals to applied engineering. Follow the full route, or jump into an individual topic when you need a targeted reference.
+
+```mermaid
+flowchart TD
+    A["01 · Environment & Help"] --> B["02 · Language Fundamentals"]
+    B --> C["03 · Arrays & Matrix Computing"]
+    C --> D["04 · Functions & Data Processing"]
+    D --> E["05 · Visualization & Reporting"]
+    E --> F["06 · Numerical Methods"]
+    F --> G["07 · Signal Processing"]
+    F --> H["08 · Control Systems"]
+    G --> I["09 · Algorithm Modeling"]
+    H --> I
+    I --> J["10 · Simulink & System Simulation"]
+    J --> K["11 · MATLAB / C Cross-Validation"]
+    K --> L["12 · Reproducible Engineering Practice"]
+```
+
+### Core Knowledge Areas
+
+<div align="center">
+
+| Fundamentals | Modeling & Analysis | Engineering Practice |
+|:---:|:---:|:---:|
+| Syntax, arrays, matrices | Numerical computation | Testable examples |
+| Functions, scripts, data types | Filtering and FFT | Boundary-condition checks |
+| Plotting and visualization | Interpolation and Kalman filters | MATLAB/C comparison |
+| Tables, files, and data handling | Control-system exploration | Reproducible results |
+
+</div>
+
+## Practical Workbench
+
+The [examples directory](Src/Examples/README.md) is the recommended starting point for hands-on practice.
+
+| Topic | Practice focus |
+|---|---|
+| Arrays and statistics | Data construction, indexing, and summary operations |
+| Low-pass filtering | Signal smoothing and response inspection |
+| Linear interpolation | Interpolation behavior and input constraints |
+| Kalman filtering | One-dimensional and position–velocity estimation |
+| Sensor data and FFT | Outlier inspection and frequency-domain analysis |
+| Fixed-point quantization | Quantization error and numerical representation |
+| MATLAB / C comparison | Reference behavior, output comparison, and regression checks |
+
+### A Typical Algorithm-Validation Workflow
 
 ```mermaid
 flowchart LR
-    A[环境与帮助] --> B[语言基础]
-    B --> C[数组与矩阵]
-    C --> D[函数与数据处理]
-    D --> E[可视化]
-    E --> F[数值计算]
-    F --> G[信号处理与控制]
-    G --> H[Simulink]
-    H --> I[工程验证与代码生成]
+    A["Define the problem"] --> B["Document assumptions"]
+    B --> C["Build MATLAB reference"]
+    C --> D["Create test vectors"]
+    D --> E["Check normal & boundary cases"]
+    E --> F["Compare outputs"]
+    F --> G{"Within tolerance?"}
+    G -- Yes --> H["Record results"]
+    G -- No --> I["Investigate the difference"]
+    I --> C
+    H --> J["Regression test"]
 ```
 
-## 推荐实践方向
+For embedded or performance-sensitive algorithms, MATLAB can serve as a readable reference model before comparing a C implementation. Define numeric precision, units, initial conditions, saturation behavior, and tolerances explicitly; matching plots alone is not sufficient evidence of equivalence.
 
-- **科学计算**：矩阵运算、数值方法、数据拟合与优化。
-- **数据分析**：文件导入、清洗、统计、可视化和报告生成。
-- **信号处理**：采样、滤波、FFT、传感器数据分析。
-- **控制系统**：系统响应、控制器参数分析与 Simulink 仿真。
-- **嵌入式算法验证**：建立 MATLAB 参考模型，与 C 实现进行输入输出对比。
+## Recommended Study Method
 
-## 可运行代码
+1. **Understand** — Read the concept and identify the mathematical or programming principle.
+2. **Implement** — Write a small example that can be run independently.
+3. **Visualize** — Plot intermediate and final results to make behavior observable.
+4. **Challenge** — Test empty inputs, boundary values, unexpected dimensions, and noisy data where applicable.
+5. **Compare** — Validate against a known result, a reference implementation, or a documented expectation.
+6. **Record** — Keep the assumptions, execution steps, expected output, and conclusions with the code.
 
-从 [Src/Examples](Src/Examples/README.md) 开始。示例包括数组与统计、低通滤波、线性插值、一维 Kalman 滤波、传感器异常点与 FFT 分析、定点量化误差，以及低通滤波/线性插值的 MATLAB-C 对比、参考输出对比和回归测试。运行前请阅读各函数的输入约束与模型假设。
+## Quick Start
 
-## 学习原则
+1. Install MATLAB, or use an available MATLAB environment compatible with the examples.
+2. Clone or download this repository.
+3. Open the repository in MATLAB and navigate to the relevant example directory.
+4. Read the example's instructions before running it; check any toolbox or version requirements.
+5. Run the script or function and compare the result with the documented expectation.
 
-1. 每个知识点都配套可运行示例，不只堆积概念。
-2. 每个算法都记录输入、输出、假设、边界条件和验证方法。
-3. 优先使用向量化表达，但以可读性和正确性为先。
-4. 涉及版本差异或工具箱依赖时，在示例中明确标注。
-5. 项目应尽量做到可复现：提供运行步骤、测试数据和预期结果。
+```bash
+git clone https://github.com/ilikui/Matlab.git
+cd Matlab
+```
 
-## 官方资料
+Start with [the examples guide](Src/Examples/README.md) for the most direct route to executable practice.
 
-- [MATLAB 官方文档](https://www.mathworks.com/help/matlab/)
-- [MATLAB 入门教程](https://www.mathworks.com/help/matlab/getting-started-with-matlab.html)
-- [Simulink 官方文档](https://www.mathworks.com/help/simulink/)
+> **Compatibility note:** Some legacy notes may target MATLAB R2018b or depend on specific toolboxes. The installed MATLAB release and its official documentation take precedence. Check each example's requirements before execution.
 
-> 旧资料中部分内容基于 MATLAB R2018b。请以实际安装版本的官方文档为准，并在学习过程中逐步补齐代码示例、测试和项目练习。
+## Repository Map
+
+```text
+Matlab/
+├── README.md                 # Project overview and navigation
+├── StudyPlan.md              # Structured learning roadmap
+├── Doc/                      # Tutorials and conceptual notes
+├── Questions/                # Question-driven practice
+├── Src/
+│   ├── Examples/             # Runnable examples and validation exercises
+│   ├── Function.md           # Function reference
+│   └── Program/              # Native-code and debugging notes
+├── Books/                    # Recommended reading
+└── Imge/                     # Learning and documentation images
+```
+
+The tree above highlights the main entry points; consult the repository directories for the complete and current file list.
+
+## Official Resources
+
+- [MATLAB Documentation](https://www.mathworks.com/help/matlab/)
+- [Get Started with MATLAB](https://www.mathworks.com/help/matlab/getting-started-with-matlab.html)
+- [Simulink Documentation](https://www.mathworks.com/help/simulink/)
+- [MATLAB Examples](https://www.mathworks.com/help/matlab/examples.html)
+- [MATLAB Answers](https://www.mathworks.com/matlabcentral/answers/)
+
+## Contributing & Continuous Improvement
+
+Learning material is most useful when it is clear, testable, and maintainable. Improvements are welcome in the form of corrected explanations, runnable examples, better visualizations, additional exercises, and reproducible validation cases.
+
+When adding an example, aim to include:
+
+- **Purpose:** the problem the example demonstrates.
+- **Requirements:** MATLAB release and toolbox dependencies, if any.
+- **Inputs and outputs:** expected shapes, units, and data types.
+- **Execution:** clear steps to run the example.
+- **Validation:** expected behavior, tolerances, and edge cases.
+- **Limitations:** assumptions and known constraints.
+
+## License
+
+See [LICENSE](LICENSE) for the license terms applicable to this repository.
+
+---
+
+<div align="center">
+
+**Understand the math. Write the model. Verify the result.**
+
+*An evolving, practical reference for MATLAB learning and engineering exploration.*
+
+</div>
