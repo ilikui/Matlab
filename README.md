@@ -48,6 +48,10 @@ It combines progressive learning notes, a staged study plan, a question-driven k
 
 The repository is organized around a progression from fundamentals to applied engineering. Follow the full route, or jump into an individual topic when you need a targeted reference.
 
+![MATLAB Learning Roadmap](Imge/Matlab-Learning-Roadmap.svg)
+
+*Visual guide: fundamentals → numerical computing → modeling → validation → engineering delivery.*
+
 ```mermaid
 flowchart TD
     A["01 · Environment & Help"] --> B["02 · Language Fundamentals"]
