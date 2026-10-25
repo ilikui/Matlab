@@ -53,6 +53,7 @@ The repository includes a small synthetic sensor dataset and a runnable analysis
 | [Sensor sample CSV](Data/sensor_sample.csv) | 51 time-stamped signal samples for import and analysis exercises |
 | [CSV analysis demo](Src/Examples/sensor_csv_demo.m) | Reads the dataset, validates columns, smooths the signal, and marks statistical outlier candidates |
 | [Sensor analysis workflow diagram](Imge/Sensor-Analysis-Workflow.svg) | Visual overview of the analysis stages |
+| [Sensor CSV example result](Imge/Sensor-CSV-Example-Result.svg) | Illustrative chart of raw samples, smoothing, and an injected spike |
 | [Examples guide](Src/Examples/README.md) | Run instructions for MATLAB algorithms, tests, and MATLAB/C comparisons |
 
 Run from the repository root in MATLAB:
