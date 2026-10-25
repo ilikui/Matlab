@@ -177,3 +177,22 @@ assert(all([results.Passed]), 'One or more sensor-analysis tests failed.');
 ```
 
 This project intentionally generates its own data, so no external CSV is required. MAD flags are statistical candidates rather than confirmed faults; validate thresholds against sensor physics, operating modes, and representative measurements.
+
+
+## CSV 数据集驱动的传感器分析
+
+![Sensor Time-Series Analysis Workflow](../../Imge/Sensor-Analysis-Workflow.svg)
+
+仓库提供一个小型、可复现的合成传感器数据集，方便练习从文件导入到分析报告的完整流程：
+
+- 数据：[Data/sensor_sample.csv](../../Data/sensor_sample.csv)，51 条采样记录，列为 `time_s` 和 `signal_v`。
+- 演示：[sensor_csv_demo.m](sensor_csv_demo.m)，检查 CSV 列名、运行 MAD 异常候选识别与移动平均，并绘制结果。
+- 分析函数：[analyze_sensor_data.m](analyze_sensor_data.m)。
+
+从仓库根目录运行：
+
+```matlab
+run('Src/Examples/sensor_csv_demo.m')
+```
+
+该数据是用于学习的合成数据，不代表真实硬件测量。异常候选应结合传感器量程、工况和物理规律进一步判断。
