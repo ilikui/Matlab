@@ -145,3 +145,14 @@ disp(report);
 3. 阅读函数的输入校验与状态更新逻辑。
 4. 运行 `run_tests.m`，再为新增行为补充测试。
 5. 对工程算法记录参考结果、误差指标和适用范围。
+
+
+## Additional Standalone Demonstrations
+
+| File | Focus | Run |
+|---|---|---|
+| [signal_fft_demo.m](signal_fft_demo.m) | FFT amplitude spectrum and dominant-frequency identification | `run('Src/Examples/signal_fft_demo.m')` |
+| [kalman_1d_demo.m](kalman_1d_demo.m) | A self-contained 1-D Kalman filter with RMSE reporting | `run('Src/Examples/kalman_1d_demo.m')` |
+| [run_smoke_tests.m](../../../Tests/run_smoke_tests.m) | Lightweight checks for interpolation, FFT peak detection, and Kalman recursion | `addpath('Tests'); run_smoke_tests` |
+
+These additions complement, rather than replace, the existing examples and the broader `run_all_tests.m` suite. They are designed to be small entry points for readers who want to understand an algorithm before exploring the more complete implementations above. The smoke tests use MATLAB base functionality; run them in your installed MATLAB version before relying on the results in an engineering workflow.
