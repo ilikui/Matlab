@@ -181,6 +181,10 @@ This project intentionally generates its own data, so no external CSV is require
 
 ## CSV 数据集驱动的传感器分析
 
+![合成传感器数据分析结果](../../Imge/Sensor-CSV-Example-Result.svg)
+
+*示例结果示意图：灰色为原始采样，蓝色为移动平均，红点为人为注入的尖峰。该图用于说明流程；运行脚本会基于 CSV 重新绘图。*
+
 ![Sensor Time-Series Analysis Workflow](../../Imge/Sensor-Analysis-Workflow.svg)
 
 仓库提供一个小型、可复现的合成传感器数据集，方便练习从文件导入到分析报告的完整流程：
