@@ -156,3 +156,22 @@ disp(report);
 | [run_smoke_tests.m](../../../Tests/run_smoke_tests.m) | Lightweight checks for interpolation, FFT peak detection, and Kalman recursion | `addpath('Tests'); run_smoke_tests` |
 
 These additions complement, rather than replace, the existing examples and the broader `run_all_tests.m` suite. They are designed to be small entry points for readers who want to understand an algorithm before exploring the more complete implementations above. The smoke tests use MATLAB base functionality; run them in your installed MATLAB version before relying on the results in an engineering workflow.
+
+
+## Sensor Time-Series Mini Project
+
+- [sensor_analysis_project.m](sensor_analysis_project.m) generates repeatable synthetic sensor data, injects an abnormal sample, plots raw and smoothed signals, and marks robust outlier candidates.
+- [analyze_sensor_data.m](analyze_sensor_data.m) is the reusable analysis function. It validates vector lengths and monotonic time, computes moving-average smoothing, reports descriptive statistics, and flags candidate outliers using a median absolute deviation (MAD)-based score.
+- [test_sensor_analysis_project.m](../../../Tests/test_sensor_analysis_project.m) contains function-based tests for output shape/statistics, outlier detection, non-increasing timestamps, and mismatched input lengths.
+
+Run from the repository root:
+
+```matlab
+addpath('Src/Examples');
+run('Src/Examples/sensor_analysis_project.m');
+results = runtests('Tests/test_sensor_analysis_project.m');
+ disp(results);
+assert(all([results.Passed]), 'One or more sensor-analysis tests failed.');
+```
+
+This project intentionally generates its own data, so no external CSV is required. MAD flags are statistical candidates rather than confirmed faults; validate thresholds against sensor physics, operating modes, and representative measurements.
