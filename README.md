@@ -256,3 +256,8 @@ flowchart LR
 ```
 
 The standalone demonstrations are educational starting points. Their presence does not imply they have been executed on every MATLAB release or validated for production use; run the tests in your own environment and adapt assumptions to the target application.
+
+
+### Sensor Data Mini Project
+
+The repository now includes a complete, self-contained sensor time-series exercise: [demo script](Src/Examples/sensor_analysis_project.m), [reusable analysis function](Src/Examples/analyze_sensor_data.m), and [function-based tests](Tests/test_sensor_analysis_project.m). It demonstrates input validation, robust outlier candidates, moving-average smoothing, descriptive statistics, and test-driven verification without requiring a toolbox or downloaded dataset.
