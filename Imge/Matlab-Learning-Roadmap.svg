@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+<title id="title">MATLAB Learning Roadmap</title>
+<desc id="desc">A visual roadmap from MATLAB fundamentals through numerical computing, signal and control analysis, algorithm validation, and engineering delivery.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#101b35"/><stop offset="1" stop-color="#172d4a"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#37c7d4"/><stop offset="1" stop-color="#7d8cff"/></linearGradient>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#06101f" flood-opacity=".28"/></filter>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#74d9e0"/></marker>
+  <style>
+    .title{font:700 46px 'Segoe UI',Arial,sans-serif;fill:#f5f8ff}.subtitle{font:400 21px 'Segoe UI',Arial,sans-serif;fill:#b7c9e2}
+    .num{font:700 15px 'Segoe UI',Arial,sans-serif;fill:#10213b}.head{font:700 23px 'Segoe UI',Arial,sans-serif;fill:#f6f9ff}.body{font:400 17px 'Segoe UI',Arial,sans-serif;fill:#c4d3e8}.small{font:600 15px 'Segoe UI',Arial,sans-serif;fill:#9ce9ed}
+  </style>
+</defs>
+<rect width="1600" height="900" rx="28" fill="url(#bg)"/>
+<circle cx="1400" cy="90" r="190" fill="#365b91" opacity=".14"/><circle cx="120" cy="820" r="210" fill="#20a7b8" opacity=".10"/>
+<text x="90" y="105" class="title">MATLAB Learning Roadmap</text>
+<text x="92" y="145" class="subtitle">From first script to validated engineering algorithms</text>
+<rect x="90" y="178" width="1420" height="4" rx="2" fill="url(#accent)"/>
+<!-- arrows -->
+<g fill="none" stroke="#74d9e0" stroke-width="3" marker-end="url(#arrow)" opacity=".95">
+<path d="M465 300 H555"/><path d="M1045 300 H1135"/>
+<path d="M1320 405 V485 H1045"/><path d="M1135 590 H1045"/><path d="M555 590 H465"/>
+<path d="M275 695 V755 H800 V790"/>
+</g>
+<!-- cards -->
+<g filter="url(#shadow)">
+<rect x="90" y="220" width="375" height="185" rx="20" fill="#213a5b" stroke="#426184"/>
+<rect x="555" y="220" width="490" height="185" rx="20" fill="#213a5b" stroke="#426184"/>
+<rect x="1135" y="220" width="375" height="185" rx="20" fill="#213a5b" stroke="#426184"/>
+<rect x="1135" y="485" width="375" height="210" rx="20" fill="#213a5b" stroke="#426184"/>
+<rect x="555" y="485" width="490" height="210" rx="20" fill="#213a5b" stroke="#426184"/>
+<rect x="90" y="485" width="375" height="210" rx="20" fill="#213a5b" stroke="#426184"/>
+<rect x="570" y="790" width="460" height="70" rx="18" fill="url(#accent)"/>
+</g>
+<g>
+<circle cx="125" cy="255" r="17" fill="#70e0e3"/><text x="125" y="260" text-anchor="middle" class="num">01</text>
+<text x="155" y="263" class="head">Fundamentals</text><text x="120" y="305" class="body">Environment · scripts · variables</text><text x="120" y="334" class="body">Arrays · indexing · functions</text><text x="120" y="374" class="small">GOAL · write clear, reusable code</text>
+<circle cx="590" cy="255" r="17" fill="#70e0e3"/><text x="590" y="260" text-anchor="middle" class="num">02</text>
+<text x="620" y="263" class="head">Data &amp; Numerical Computing</text><text x="585" y="305" class="body">Import / clean data · statistics · plots</text><text x="585" y="334" class="body">Interpolation · solvers · error analysis</text><text x="585" y="374" class="small">GOAL · explain accuracy and assumptions</text>
+<circle cx="1170" cy="255" r="17" fill="#70e0e3"/><text x="1170" y="260" text-anchor="middle" class="num">03</text>
+<text x="1200" y="263" class="head">Model &amp; Analyze</text><text x="1170" y="305" class="body">FFT · filters · Kalman estimation</text><text x="1170" y="334" class="body">Control systems · Simulink</text><text x="1170" y="374" class="small">GOAL · connect math to behavior</text>
+<circle cx="1170" cy="520" r="17" fill="#70e0e3"/><text x="1170" y="525" text-anchor="middle" class="num">06</text>
+<text x="1200" y="528" class="head">Deliver &amp; Document</text><text x="1170" y="570" class="body">Reproducible demos · plots · reports</text><text x="1170" y="599" class="body">Versioned data · limitations · README</text><text x="1170" y="639" class="small">GOAL · make results repeatable</text><text x="1170" y="666" class="body">Package a portfolio project</text>
+<circle cx="590" cy="520" r="17" fill="#70e0e3"/><text x="590" y="525" text-anchor="middle" class="num">05</text>
+<text x="620" y="528" class="head">Test &amp; Validate</text><text x="585" y="570" class="body">Nominal · boundary · invalid inputs</text><text x="585" y="599" class="body">Regression tests · tolerances · RMSE</text><text x="585" y="639" class="small">GOAL · evidence, not just a good plot</text><text x="585" y="666" class="body">Compare MATLAB reference with C</text>
+<circle cx="125" cy="520" r="17" fill="#70e0e3"/><text x="125" y="525" text-anchor="middle" class="num">04</text>
+<text x="155" y="528" class="head">Engineering Algorithms</text><text x="120" y="570" class="body">Sensor signals · embedded constraints</text><text x="120" y="599" class="body">Numeric precision · fixed-point effects</text><text x="120" y="639" class="small">GOAL · model realistic constraints</text><text x="120" y="666" class="body">State units, ranges, and initial values</text>
+<text x="800" y="833" text-anchor="middle" style="font:700 22px 'Segoe UI',Arial,sans-serif;fill:#10213b">LEARN → IMPLEMENT → MEASURE → VERIFY</text>
+</g>
+<text x="90" y="875" style="font:400 14px 'Segoe UI',Arial,sans-serif;fill:#9db2ce">MATLAB Learning &amp; Engineering Lab · Follow the stages or jump directly to a topic</text>
+</svg>
