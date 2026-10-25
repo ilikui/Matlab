@@ -205,3 +205,32 @@ The repository now includes focused guides that can be read independently or fol
 | [Practice Labs](Questions/MATLAB-Practice-Labs.md) | Ten hands-on labs with acceptance criteria |
 | [Function Index](Src/Function.md) | Searchable reference to common functions |
 
+## Expanded Learning Resources
+
+To make the repository easier to use as a complete curriculum, two practical indexes are available:
+
+| Resource | Purpose |
+|---|---|
+| [Advanced MATLAB — 100 Questions](Questions/MATLAB-Advanced-100.md) | Deepen understanding of array semantics, debugging, data quality, numerical methods, signal processing, testing, and algorithm delivery |
+| [Engineering Project Roadmap](Projects/README.md) | Turn concepts into portfolio projects with clear deliverables and acceptance criteria |
+
+### Suggested Route: Learn → Practice → Verify → Deliver
+
+```mermaid
+flowchart LR
+    A[Read a concept] --> B[Run a minimal example]
+    B --> C[Change inputs and test boundaries]
+    C --> D[Measure error and performance]
+    D --> E[Document assumptions and results]
+    E --> F[Package as a reproducible project]
+```
+
+### What to Add When Contributing
+
+- **Learning notes:** explain the concept, common mistakes, and version-specific behavior.
+- **Runnable code:** avoid hidden workspace dependencies; include sample inputs or a deterministic data generator.
+- **Tests:** cover nominal, boundary, invalid-input, and numerical-tolerance cases.
+- **Evidence:** provide expected output, plots, error metrics, or a reference comparison.
+- **Navigation:** link the new material from the relevant tutorial, example index, or question bank.
+
+These resources complement the existing [study plan](StudyPlan.md), [practice labs](Questions/MATLAB-Practice-Labs.md), and [executable examples](Src/Examples/README.md).
