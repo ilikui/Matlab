@@ -234,3 +234,25 @@ flowchart LR
 - **Navigation:** link the new material from the relevant tutorial, example index, or question bank.
 
 These resources complement the existing [study plan](StudyPlan.md), [practice labs](Questions/MATLAB-Practice-Labs.md), and [executable examples](Src/Examples/README.md).
+
+
+## Advanced Practice & Project Portfolio
+
+For the next step beyond the core tutorial, use the focused advanced question bank and the project-first practice guide:
+
+- [MATLAB Advanced — 100 Questions](Questions/MATLAB-Advanced-100.md): language semantics, debugging, data workflows, numerical methods, signal/control, and engineering delivery.
+- [Project Portfolio & Acceptance Criteria](Projects/README.md): progressively build data-cleaning, interpolation, FFT, filtering, Kalman, control, and MATLAB/C validation projects.
+- [Standalone FFT Demo](Src/Examples/signal_fft_demo.m): a minimal frequency-domain example.
+- [Standalone Kalman Demo](Src/Examples/kalman_1d_demo.m): a minimal state-estimation example.
+- [Smoke Tests](Tests/run_smoke_tests.m): small checks for interpolation, FFT peak detection, and Kalman recursion.
+
+```mermaid
+flowchart LR
+    A[Read concept] --> B[Run example]
+    B --> C[Change input and parameters]
+    C --> D[Run tests]
+    D --> E[Document assumptions and error]
+    E --> F[Extend into a project]
+```
+
+The standalone demonstrations are educational starting points. Their presence does not imply they have been executed on every MATLAB release or validated for production use; run the tests in your own environment and adapt assumptions to the target application.
