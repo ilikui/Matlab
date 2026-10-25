@@ -44,6 +44,25 @@ It combines progressive learning notes, a staged study plan, a question-driven k
 | Explore recommended reading | [Books](Books/Books.txt) | Books and further learning resources |
 | Study native-code integration and debugging | [GDB / MEX Notes](Src/Program/gcc/gdb.md) | Related notes for debugging and native-code workflows |
 
+## Reproducible Data & Experiments
+
+The repository includes a small synthetic sensor dataset and a runnable analysis workflow, so you can practice a real file-to-plot pipeline without downloading external data.
+
+| Resource | Purpose |
+|---|---|
+| [Sensor sample CSV](Data/sensor_sample.csv) | 51 time-stamped signal samples for import and analysis exercises |
+| [CSV analysis demo](Src/Examples/sensor_csv_demo.m) | Reads the dataset, validates columns, smooths the signal, and marks statistical outlier candidates |
+| [Sensor analysis workflow diagram](Imge/Sensor-Analysis-Workflow.svg) | Visual overview of the analysis stages |
+| [Examples guide](Src/Examples/README.md) | Run instructions for MATLAB algorithms, tests, and MATLAB/C comparisons |
+
+Run from the repository root in MATLAB:
+
+```matlab
+run('Src/Examples/sensor_csv_demo.m')
+```
+
+The included CSV is synthetic teaching data, not a real vehicle or hardware measurement. Outlier flags are candidates for review, not automatic fault diagnoses.
+
 ## Learning Architecture
 
 The repository is organized around a progression from fundamentals to applied engineering. Follow the full route, or jump into an individual topic when you need a targeted reference.
