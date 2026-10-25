@@ -15,6 +15,19 @@ flowchart TD
     G --> H[自动化测试与持续集成]
 ```
 
+## 可直接运行的项目入口
+
+### 传感器时序分析（无需外部数据）
+
+![传感器时序分析流程](../Imge/Sensor-Analysis-Workflow.svg)
+
+- 数据文件：[sensor_sample.csv](../Data/sensor_sample.csv)
+- 运行脚本：[sensor_csv_demo.m](../Src/Examples/sensor_csv_demo.m)
+- 核心函数：[analyze_sensor_data.m](../Src/Examples/analyze_sensor_data.m)
+- 测试：[test_sensor_analysis_project.m](../Tests/test_sensor_analysis_project.m)
+
+从仓库根目录执行 `run('Src/Examples/sensor_csv_demo.m')`。该练习覆盖 CSV 读取、列检查、移动平均、MAD 异常候选标记与结果可视化。示例数据是合成数据，实际项目还应记录传感器量程、单位、采样条件和异常判断依据。
+
 ## 项目清单
 
 | 等级 | 项目 | 核心技能 | 验收产物 |
