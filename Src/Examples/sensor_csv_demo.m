@@ -14,7 +14,7 @@ if ~all(ismember(requiredColumns, data.Properties.VariableNames))
 end
 time = data.time_s;
 signal = data.signal_v;
-result = analyze_sensor_data(time, signal, WindowSize=5, OutlierThreshold=3.5);
+result = analyze_sensor_data(time, signal, 'WindowSize', 5, 'OutlierThreshold', 3.5);
 fprintf('Samples: %d\n', result.stats.count);
 fprintf('Mean: %.5f V | Median: %.5f V | Std: %.5f V\n', result.stats.mean, result.stats.median, result.stats.std);
 fprintf('Outlier candidates: %d\n', result.stats.outlierCount);
