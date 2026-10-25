@@ -160,6 +160,8 @@ These additions complement, rather than replace, the existing examples and the b
 
 ## Sensor Time-Series Mini Project
 
+![Sensor Time-Series Analysis Workflow](../../Imge/Sensor-Analysis-Workflow.svg)
+
 - [sensor_analysis_project.m](sensor_analysis_project.m) generates repeatable synthetic sensor data, injects an abnormal sample, plots raw and smoothed signals, and marks robust outlier candidates.
 - [analyze_sensor_data.m](analyze_sensor_data.m) is the reusable analysis function. It validates vector lengths and monotonic time, computes moving-average smoothing, reports descriptive statistics, and flags candidate outliers using a median absolute deviation (MAD)-based score.
 - [test_sensor_analysis_project.m](../../../Tests/test_sensor_analysis_project.m) contains function-based tests for output shape/statistics, outlier detection, non-increasing timestamps, and mismatched input lengths.
@@ -170,7 +172,7 @@ Run from the repository root:
 addpath('Src/Examples');
 run('Src/Examples/sensor_analysis_project.m');
 results = runtests('Tests/test_sensor_analysis_project.m');
- disp(results);
+disp(results);
 assert(all([results.Passed]), 'One or more sensor-analysis tests failed.');
 ```
 
