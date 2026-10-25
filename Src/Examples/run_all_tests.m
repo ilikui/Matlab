@@ -20,4 +20,14 @@ run(fullfile(fileparts(mfilename('fullpath')), 'test_interpolation.m'));
 fprintf('\n=== Position-velocity Kalman tests ===\n');
 run(fullfile(fileparts(mfilename('fullpath')), 'test_kalman_position_velocity.m'));
 
-fprintf('\nAll test scripts completed without assertion errors.\n');
+fprintf('\n=== Sensor-analysis function-based tests ===\n');
+repoRoot = fileparts(fileparts(fileparts(mfilename('fullpath'))));
+sensorTestFile = fullfile(repoRoot, 'Tests', 'test_sensor_analysis_project.m');
+sensorResults = runtests(sensorTestFile);
+disp(sensorResults);
+if isempty(sensorResults) || ~all([sensorResults.Passed])
+    error('run_all_tests:SensorTestsFailed', ...
+        'One or more sensor-analysis tests failed or no tests were discovered.');
+end
+
+fprintf('\nAll script and function-based tests passed.\n');
